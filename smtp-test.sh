@@ -12,8 +12,10 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+#   Requirements
+#      Netcat
 #   Usage 
-#   $ bash smtp-test.sh mail.somedomain.com
+#      $ bash smtp-test.sh mail.somedomain.com
 
 if [ -z $2 ]; then
         NUMBER=6
@@ -24,7 +26,7 @@ fi
 printf "Starting VPS Soldiers telnet test script.\n\n"
 for i in `seq 1 $NUMBER` ; do
         printf ">> Attempt $i\n"
-        echo 'quit' | telnet $1 25 ;
+        echo 'quit' | nc $1 25 ;
         printf "\n"
 done
 printf "VPS Soldiers telnet test script completed.\n"
